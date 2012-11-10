@@ -1,4 +1,4 @@
-package Server.ctrl;
+package ctrl;
 
 import serveur.connexion.ProtocoleSrv;
 import commun.Protocole;

@@ -1,7 +1,7 @@
-package client.ctrl;
+package ctrl;
 
 import commun.ExceptionBanque;
-import client.model.GAB;
+import ctrl.model.GAB;
 import client.vue.Vue;
 //import utils.Util;
 
