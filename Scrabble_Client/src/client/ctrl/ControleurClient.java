@@ -1,4 +1,4 @@
-package Scrabble_Client.ctrl;
+package client.ctrl;
 
 import commun.ExceptionBanque;
 import client.model.GAB;

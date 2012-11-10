@@ -1,19 +1,19 @@
-package Scrabble_Server.ctrl;
+package Server.ctrl;
 
 import serveur.connexion.ProtocoleSrv;
 import java.io.*;
 import java.net.*;
 
-public class ServerBank {
+public class ScrabbleServer {
 
     public static void main(String[] args) {
-        ServerBank serverBank = new ServerBank();
-        serverBank.start();
+        ScrabbleServer ScrabbleServer = new ScrabbleServer();
+        ScrabbleServer.start();
     }
     
-    public ServerBank() {}
+    public ScrabbleServer() {}
     
-    public ServerBank(int port) {
+    public ScrabbleServer(int port) {
         this.port = port;
     }
  

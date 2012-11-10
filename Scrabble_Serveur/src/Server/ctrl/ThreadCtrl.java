@@ -1,4 +1,4 @@
-package Scrabble_Server.ctrl;
+package Server.ctrl;
 
 import serveur.connexion.ProtocoleSrv;
 import commun.Protocole;
