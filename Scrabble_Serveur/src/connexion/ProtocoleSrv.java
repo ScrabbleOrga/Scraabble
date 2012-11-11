@@ -12,8 +12,7 @@ class ProtocoleSrv {
 
     public ProtocoleSrv() {
         System.out.println("Test du github");
-            System.out.println("Test du github");
-    
+        System.out.println("Test du github");
     }
     
 }
