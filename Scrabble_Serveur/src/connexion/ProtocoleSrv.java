@@ -9,5 +9,9 @@ package connexion;
  * @author Vince
  */
 class ProtocoleSrv {
+
+    public ProtocoleSrv() {
+        System.out.println("Test du github");
+    }
     
 }
