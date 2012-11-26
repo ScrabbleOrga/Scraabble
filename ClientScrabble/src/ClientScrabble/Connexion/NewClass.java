@@ -2,15 +2,12 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package ClientScrabble.Model;
+package ClientScrabble.Connexion;
 
 /**
  *
  * @author Vince
  */
-public class ListeMots {
-
-    private String[] contenu;
-    
+public class NewClass {
     
 }

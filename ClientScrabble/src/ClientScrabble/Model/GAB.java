@@ -5,6 +5,7 @@
 package ClientScrabble.Model;
 import ClientScrabble.Connexion.ProtocoleClient;
 import commun.*;
+import java.util.HashSet;
 
 /**
  *  
@@ -13,19 +14,24 @@ import commun.*;
  */
 
 public class GAB {
-    private String nomClient;
     private ProtocoleClient protocole;
-    private Dictionnaire MonDico;
+    private Joueur MonJoueur;
+    private ListeCases MonPlateau;
     
     public GAB(String adrIP, int port) {
-        protocole = new ProtocoleClient(adrIP, port);
-        MonDico = new Dictionnaire();
+       protocole = new ProtocoleClient(adrIP, port);  
+       MonPlateau.getInstance();
+       while(true){
+        
+        }
+       
     }
-
-    public String getNomClient() {
-        return nomClient;
+    
+    public void setNom(String nom){
+        MonJoueur.setNom(nom);
     }
-    public void setNomClient(String nomClient) {
-        this.nomClient = nomClient;
-    }
+    
+    
+    
+    
 }

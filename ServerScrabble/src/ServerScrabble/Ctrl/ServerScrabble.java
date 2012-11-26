@@ -38,5 +38,6 @@ public class ServerScrabble {
         }
     }
     private int port = 8189;
+    
 }
 

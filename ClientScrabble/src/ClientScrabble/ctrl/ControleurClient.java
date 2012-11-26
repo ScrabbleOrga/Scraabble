@@ -14,7 +14,10 @@ public class ControleurClient {
 
     public static void main(String[] args) {
         ControleurClient ctrlClient = new ControleurClient(args);
-        ctrlClient.affInit();
+        ctrlClient.Init(); 
+    }
+    public void Init(){
+        vue.EcranInitial();
     }
     
     //***************  Lancement du pgm client ***********************
@@ -30,37 +33,5 @@ public class ControleurClient {
         }
        vue = new Vue(this);
        gab = new GAB(adrIP, port);
-    }
-    
-    public void affInit() {
-        vue.menuInitial();
-    }
-
-    public void choixInitial(Integer choix) {
-        switch (choix) {
-            default:
-                vue.aff("Mauvais choix");
-                vue.menuInitial();
-                break;
-        }
-    }
-
-    
-    //********************* Méthodes privées ************************
-
-    private void traiter_exception(ExceptionScrabble e) {
-        switch (e.getErreur()) {
-            case JOUEUR_EXISTE:
-                vue.aff("Cher " + gab.getNomClient() + ", Vous avez deja joué au jeu");
-                vue.menuInitial();
-                break;
-            case JOUEUR_EXISTE_PAS:
-                vue.aff("Cher " + gab.getNomClient() + ", Vous n'avez jamais joué au jeu !");
-                vue.menuInitial();
-                break;
-            case AUTRE:
-                vue.aff("Problème inconnu !");
-                break;
-        }
     }
 }

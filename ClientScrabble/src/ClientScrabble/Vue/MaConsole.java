@@ -44,6 +44,7 @@ public class MaConsole
       }
       return r;
    }
+ 
 
    /**
       read a string from the console. The string is
@@ -58,46 +59,5 @@ public class MaConsole
       return readLine();
    }
 
-   /**
-      read an integer from the console. The input is
-      terminated by a newline
 
-      @param prompt the prompt string to display
-      @return the input value as an int
-      @exception NumberFormatException if bad input
-    */
-
-   public static int readInt(String prompt)
-   {  while(true)
-      {  printPrompt(prompt);
-         try
-         {  return Integer.valueOf
-               (readLine().trim()).intValue();
-         } catch(NumberFormatException e)
-         {  System.out.println
-               ("Not an integer. Please try again!");
-         }
-      }
-   }
-
-   /**
-      read a floating point number from the console.
-      The input is terminated by a newline
-
-      @param prompt the prompt string to display
-      @return the input value as a double
-      @exception NumberFormatException if bad input
-    */
-
-   public static double readDouble(String prompt)
-   {  while(true)
-      {  printPrompt(prompt);
-         try
-         {  return Double.parseDouble(readLine().trim());
-         } catch(NumberFormatException e)
-         {  System.out.println
-         ("Not a floating point number. Please try again!");
-         }
-      }
-   }
 }
