@@ -24,12 +24,12 @@ public class ProtocoleClient extends Protocole {
     }
     
 
-    public Message send_message(String sMessage) {
+    public Message send_message(int code, String nom, int montant) {
         Message msgRep = null;
         if (connexionTCP() == CONN_OK) {
-            int etat = connexionScrabble();
+            int etat = connexionBanque();
             if (etat == CONN_ACK) {
-                etat = envoiMsg(new Message(10));
+                etat = envoiMsg(new Message(code, nom, montant));
                 if (etat == CONN_ACK){
                     msgRep = attenteReponse();
                 }
@@ -51,13 +51,13 @@ public class ProtocoleClient extends Protocole {
         }
     }
 
-    private int connexionScrabble() {
+    private int connexionBanque() {
         try {
             write("RQST");
             if (in.readLine().equals("ACK")) {
                 return CONN_ACK;
             } else {
-                return CONN_NO_SCRABBLE;
+                return CONN_NOT_BANK;
             }
         } catch (IOException ex) {
             return CONN_KO;
@@ -70,7 +70,7 @@ public class ProtocoleClient extends Protocole {
             if (in.readLine().equals("ACK")) {
                 return CONN_ACK;
             } else {
-                return CONN_NO_SCRABBLE;
+                return CONN_NOT_BANK;
             }
         } catch (IOException ex) {
             return CONN_KO;

@@ -16,9 +16,9 @@ public abstract class Protocole {
     //Messages de connexions
     public static final int CONN_OK = 100;
     public static final int CONN_KO = 200;
+    public static final int CONN_NOT_INIT = 300;
+    public static final int CONN_NOT_BANK = 400; 
     public static final int CONN_ACK = 500;
-    public static final int CONN_NO_SCRABBLE = 400;
-    
     
 
     protected void write(String s) {
