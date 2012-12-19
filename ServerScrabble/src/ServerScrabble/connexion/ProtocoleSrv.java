@@ -3,7 +3,6 @@
  * and open the template in the editor.
  */
 package ServerScrabble.connexion;
-
 import commun.Message;
 import commun.Protocole;
 import java.io.BufferedReader;

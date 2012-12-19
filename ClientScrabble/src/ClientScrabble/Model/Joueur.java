@@ -3,51 +3,17 @@
  * and open the template in the editor.
  */
 package ClientScrabble.Model;
-
+import ClientScrabble.Connexion.ProtocoleClient;
 /**
  *
  * @author Vince
  */
 public class Joueur {
-    private String nom;
-    private int score;
-
-    public Joueur(String nom) {
-        this.nom = nom;
-        this.score = 0;
+    private ProtocoleClient ptrcl;
+   
+    public Joueur(String addIp,int port) {
+        ProtocoleClient ptrcl = new ProtocoleClient(addIp, port);
     }
-    public Joueur(){
-        this.nom = "";
-        this.score = 0;
-    }
-
-    /**
-     * @return the nom
-     */
-    public String getNom() {
-        return nom;
-    }
-
-    /**
-     * @return the score
-     */
-    public int getScore() {
-        return score;
-    }
-
-    /**
-     * @param score the score to set
-     */
-    public void setScore(int score) {
-        this.score = score;
-    }
-
-    /**
-     * @param nom the nom to set
-     */
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
-         
     
+
 }

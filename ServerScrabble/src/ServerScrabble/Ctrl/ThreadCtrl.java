@@ -1,18 +1,18 @@
 package ServerScrabble.Ctrl;
 
 import ServerScrabble.connexion.ProtocoleSrv;
+import ServerScrabble.Model.Scrabble;
 import commun.*;
 //import ServerScrabble.connexionmodel.BanqueFactory;
 
 class ThreadCtrl extends Thread {
-
+    private Scrabble Scrabble;
     //private IBanque banque;
     private ProtocoleSrv proto;
     Message demande;
 
     public ThreadCtrl(ProtocoleSrv p) {
         proto = p;
-  //      banque = BanqueFactory.getBanque();
     }
 
     @Override
@@ -27,9 +27,9 @@ class ThreadCtrl extends Thread {
             return;
         }
         switch (demande.getCode()) {
-//            case Message.OP_D:
-//                depot();
-//                break;
+            case 1:
+                this.Scrabble = new Scrabble();
+                break;
             default:
         }
     }//fin traiterClient
@@ -38,28 +38,16 @@ class ThreadCtrl extends Thread {
         Message reponse = null;
         switch (e.getErreur()) {
             case JOUEUR_EXISTE:
-                reponse = new Message(Message.M_JOUEXIST,"",0);
+                reponse = new Message("Erreur");
                 break;
         }
         proto.respond(reponse);
     }
 
-
-/*    private void depot() {
-        String nomClient = demande.getNom();
-        double montant = demande.getMontant();
-        aff(nomClient + " fait un dépot");
-        try {
- //           int new_solde = (int) banque.depot(nomClient, montant);
- //           Message reponse = new Message(Message.M_OK, nomClient, new_solde);
-//            proto.respond(reponse);
-        } catch (ExceptionScrabble e) {
-            traiter_err(e);
-        }
-    }
-*/
     private void aff(String msg) {
         System.out.println("SERVEUR : "+msg);
     }
+
+    
 }//fin classe	
 

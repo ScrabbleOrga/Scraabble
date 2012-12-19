@@ -3,8 +3,8 @@ package commun;
 public class Message {
 
     private Integer code = 0;
-    private String nom = "";
-    private Integer montant = 0;
+    private String message = "";
+    private Integer point = 0;
     private String paquet = "";
     
     
@@ -15,15 +15,12 @@ public class Message {
     public static final int M_JOUNOTEXIST = 4; //KO : Le joueur n'existe pas
     
     //Messages d'opérations
-    public static final int OP_I = 10; //Inscription
-    public static final int OP_U = 20; //Dés-inscription
-    public static final int OP_L = 30; //Login
-    public static final int OP_DEC = 70; //Déconnexion
-
-    public Message(Integer code, String nom, Integer montant) {
+    public static final int OP_I = 10; //Initialisation
+    public static final int OP_U = 20; //Remise à zero
+   
+    public Message(Integer code, String message) {
         this.code = code;
-        this.nom = nom;
-        this.montant = montant;
+        this.message = message;
         setPaquet();
     }
 
@@ -31,8 +28,8 @@ public class Message {
         String[] str = new String[3];
         str = msg.split(":");
         this.code = Integer.parseInt(str[0]);
-        this.nom = str[1];
-        this.montant = Integer.parseInt(str[2]);
+        this.message = str[1];
+        this.point = Integer.parseInt(str[2]);
         setPaquet();
     }
 
@@ -40,12 +37,12 @@ public class Message {
         return code;
     }
 
-    public String getNom() {
-        return nom;
+    public String getMessage() {
+        return message;
     }
 
     public Integer getMontant() {
-        return montant;
+        return point;
     }
 
     @Override
@@ -54,6 +51,6 @@ public class Message {
     }
 
     private void setPaquet() {
-        paquet = code.toString() + ":" + nom + ":" + montant.toString();
+        paquet = code.toString() + ":" + message + ":" + point.toString();
     }
 }

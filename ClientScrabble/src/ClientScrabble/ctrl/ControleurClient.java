@@ -1,6 +1,6 @@
 package ClientScrabble.ctrl;
 
-import ClientScrabble.Model.GAB;
+import ClientScrabble.Model.Joueur;
 import ClientScrabble.Vue.Vue;
 import commun.ExceptionScrabble;
 //import utils.Util;
@@ -8,10 +8,9 @@ import commun.ExceptionScrabble;
 public class ControleurClient {
 
     private Vue vue;
-    private GAB gab;
     private static String adrIP = "localhost";
     private static int port = 8189;
-
+    private Joueur MonJoueur;
     public static void main(String[] args) {
         ControleurClient ctrlClient = new ControleurClient(args);
         ctrlClient.Init(); 
@@ -19,9 +18,9 @@ public class ControleurClient {
     public void Init(){
         vue.EcranInitial();
     }
-    
+     
     //***************  Lancement du pgm client ***********************
-    public ControleurClient(String[] args) {
+        public ControleurClient(String[] args) {
         switch (args.length) {
             case 1:
                 adrIP = args[0];
@@ -31,7 +30,17 @@ public class ControleurClient {
                 port = Integer.valueOf(args[1].trim()).intValue();
                 break;
         }
+       MonJoueur = new Joueur(adrIP,port);
        vue = new Vue(this);
-       gab = new GAB(adrIP, port);
     }
+ 
+    public void choixClient(int code){
+        //try {
+            switch (code){
+                case 1:
+                    vue.EcranInitial();
+                    break;
+               
+            }
+    } 
 }
